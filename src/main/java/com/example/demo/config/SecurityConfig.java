@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		// 自定义无权访问页面
-		http.exceptionHandling().accessDeniedPage("/403.html");
+		http.exceptionHandling().accessDeniedPage("/permission_denied");
 		
 		// 在登录成功界面加上个登出
 		http.logout()
@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.logoutSuccessUrl("/logout_success").permitAll();
 		
 		http.formLogin() // <------自定义登录页面设置
-				.loginPage("/verify.html") // <------ 登录页面，放在static文件夹下，除了这个指定的是文件外，下面的都是请求路径
+				.loginPage("/verify") // <------ 登录页面的都是请求路径，这里统一都写请求路径，让controller去跳转，不要写放在static下面的静态页面，容易混乱
 				/*
 				 * 验证传回的用户名密码的请求路径，由spring security自己生成，
 				 * 与verify.html 页面相对登录验证提交的地址相对应-> <form action="/springbootaction/login_verify" method="post">

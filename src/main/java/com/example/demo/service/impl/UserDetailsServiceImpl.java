@@ -26,20 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		// 使用MP条件构造器来查询或者map来查询
 		User user = userMapper.selectOne(new QueryWrapper<User>().eq("username", username));
-		if (user == null) {
-			throw new UsernameNotFoundException("用户" + username + "不存在");
-		}
-
-//		Map<String, Object> map = new HashMap<>();
-//		map.put("username", username);
-//		List<User> list = userMapper.selectByMap(map);
-//
-//		if (list.size() != 1) {
-//			throw new UsernameNotFoundException("用户" + username + "不存在");
-//		}
-//		User user = list.get(0);
-		
-		if (!username.equals(user.getUsername())) { // <------用户名大小写区分逻辑
+		if (user == null || !username.equals(user.getUsername())) { // <------加入区分用户名大小写逻辑
 			throw new UsernameNotFoundException("用户" + username + "不存在");
 		}
 
