@@ -15,8 +15,13 @@ public class PageController {
 	 * public static final String DEFAULT_SUFFIX = ".html";
 	 */
 
+	@GetMapping("")
+	public String verify1() {
+		return "verify";
+	}
+
 	@GetMapping("verify")
-	public String verify() {
+	public String verify2() {
 		return "verify";
 	}
 
