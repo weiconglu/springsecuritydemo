@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class HomepageController {
+public class PageController {
 
 	/*
 	 * 使用thymeleaf模板，前缀和后缀已在配置文件中自动配置

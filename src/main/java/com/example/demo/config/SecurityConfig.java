@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.logoutSuccessUrl("/logout_success").permitAll();
 		
 		http.formLogin() // <------自定义登录页面设置
-				.loginPage("/verify") // <------ 登录页面的都是请求路径，这里统一都写请求路径，让controller去跳转，不要写放在static下面的静态页面，容易混乱
+				.loginPage("/verify") // <------ 登录页面的请求路径，都统一都写请求路径，让controller去跳转，不要写放在static下面的静态页面，容易混乱
 				/*
 				 * 验证传回的用户名密码的请求路径，由spring security自己生成，
 				 * 与verify.html 页面相对登录验证提交的地址相对应-> <form action="/springbootaction/login_verify" method="post">
